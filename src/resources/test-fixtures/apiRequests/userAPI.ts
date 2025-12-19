@@ -114,7 +114,6 @@ export class UserAPI {
         } catch {
             body = { raw: text };
         }
-        console.log(body);
         return body.responseCode;
     }
 
