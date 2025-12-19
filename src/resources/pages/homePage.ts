@@ -36,7 +36,12 @@ export class HomePage {
 
     // Actions
     async clickConsent() {
-        await this.consentButton.click();
+        if (await this.consentButton.isVisible({ timeout: 8000 }).catch(() => false)) {
+            await this.consentButton.click();
+            console.log('Consent button clicked.');
+        } else {
+            console.log('Consent button not present after 5 seconds, skipping.');
+        }
     }
 
     async clickSignupLogin() {
